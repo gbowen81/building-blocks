@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+<style>
+.bg-red {
+	background-color: #ad6253;
+	color: #ffffff;
+}
+.col30 {
+	flex-basis: 30%;
+	width: 500px;/*Width unnecessary when among other elmeents in a flex-container*/
+}
+.center-hor {
+	display: flex;
+	justify-content: center;
+}
+.flex {
+	display: flex;
+}
+.flex-wrap {
+	flex-wrap: wrap;
+}
+.flex-column {
+	flex-direction: column;
+}
+.flex-row {
+	flex-direction: row;
+}
+#product-slider {
+	display: flex;
+}
+#slider-images {
+	width: 100%;
+	height: 400px;
+}
+
+#slider-thumbnails {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 80px;
+}
+
+#slider-thumbnails > div {
+	display: flex;
+	flex: 1;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	height: 80px;
+}
+
+#slider-thumbnails > div:hover {
+	background-color: #6c2617;
+}
+
+#slider-thumbnails > div.highlighted {
+	background-color: #6c2617;
+}
+
+#slider-product-image {
+	position: relative;
+	height: 100%;
+	flex-grow: 1;
+	display: block;
+	overflow: hidden;
+}
+
+#slider-product-info {
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	position: relative;
+}
+
+#slider-product-info > div {
+	width: 100%;
+	display: none;
+	position: absolute;
+}
+
+#slider-product-info > div.info-center {
+	left: 0;
+	display: block;
+	animation: slidein .7s ease-in;
+	-ms-animation: slidein .7s ease-in;
+	-webkit-animation: slidein .7s ease-in;
+	-0-animation: slidein .7s ease-in;
+	-moz-animation: slidein .7s ease-in;
+}
+
+@keyframes slidein {
+	0% { left: -100%; }
+	100% { left: 0; }
+} 
+
+@-webkit-keyframes slidein {
+	0% { left: -100%; }
+	100% { left: 0; }
+}
+
+
+#slider-product-info > div.info-right {
+	left: 100%;
+	display: block;
+	animation: slideout .7s ease-in;
+	-ms-animation: slideout .7s ease-in;
+	-webkit-animation: slideout .7s ease-in;
+	-0-animation: slideout .7s ease-in;
+	-moz-animation: slideout .7s ease-in;
+}
+
+@keyframes slideout {
+	0% { left: 0; }
+	100% { left: 100%; }
+}
+
+@-webkit-keyframes slideout {
+	0% { left: 0; }
+	100% { left: 100%; }
+}
+
+#image-group {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	
+}
+
+.indiv-img {
+	width: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 100%;
+}
+
+.indiv-img.middle {
+	top: 0;
+	display: flex;
+}
+
+.indiv-img.bottom {
+	top: 100%;
+	display: flex;
+}
+
+#slider-product-info a {
+	color: #fff;
+}
+
+#slider-product-info h2 {
+	text-align: center;
+	width: 100%;
+	margin-bottom: 5px;
+}
+#slider-product-info h3 {
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+}
+#slider-product-image img {
+	object-fit: cover;
+	max-height: 100%;
+	max-width: 100%;
+}
+#slider-thumbnails img {
+	width: 50px;
+}
+
+.indiv-img.middle {
+	animation: dropin .7s ease-in;
+	-ms-animation: dropin .7s ease-in;
+	-webkit-animation: dropin .7s ease-in;
+	-0-animation: dropin .7s ease-in;
+	-moz-animation: dropin .7s ease-in;
+}
+@keyframes dropin {
+	0% { top: -100%; }
+	100% { top: 0; }
+} 
+
+@-webkit-keyframes dropin {
+	0% { top: -100%; }
+	100% { top: 0; }
+}
+
+.indiv-img.bottom {
+	animation: dropout .6s ease-in;
+	-ms-animation: dropout .6s ease-in;
+	-webkit-animation: dropout .6s ease-in;
+	-0-animation: dropout .6s ease-in;
+	-moz-animation: dropout .6s ease-in;
+}
+
+@keyframes dropout {
+	0% { top: 0; }
+	100% { top: 100%; }
+}
+
+@-webkit-keyframes dropout {
+	0% { top: 0; }
+	100% { top: 100%; }
+}
+</style>
+
+<div id="product-slider" class="bg-red col30 center-hor flex flex-wrap lghalf smfull sm3">
+	<div id="slider-images" class="flex flex-row">
+		<div id="slider-thumbnails" class="flex flex-column">
+			<div onclick="goToProduct(0)">
+				<img src="assets/images/products/88826-80x80.png"/>
+			</div>
+			<div onclick="goToProduct(1)">
+				<img src="assets/images/products/99937-80x80.png"/>					
+			</div>
+			<div onclick="goToProduct(2)">
+				<img src="assets/images/products/g2637-80x80.png"/>					
+			</div>
+			<div onclick="goToProduct(3)">
+				<img src="assets/images/products/bc826-80x80.png"/>					
+			</div>
+			<div onclick="goToProduct(4)">
+				<img src="assets/images/products/bc937-80x80.png"/>					
+			</div>				
+		</div>
+		<div id="slider-product-image">
+			<div id="image-group">
+				<a href="#" class="indiv-img middle">
+					<img src="assets/images/products/88826-400x400.png"/>
+				</a>
+				<a href="#" class="indiv-img">
+					<img src="assets/images/products/99937-400x400.png"/>
+				</a>
+				<a href="#" class="indiv-img">
+					<img src="assets/images/products/g2637-400x400.png"/>
+				</a>
+				<a href="#" class="indiv-img">
+					<img src="assets/images/products/bc826-400x400.png"/>
+				</a>
+				<a href="#" class="indiv-img">
+					<img src="assets/images/products/bc937-400x400.png"/>
+				</a>					
+			</div>
+		</div>
+	</div>
+	<div id="slider-product-info">
+		<div class="info-center">
+			<a href="#">
+			<h3>Fine-Grain Finishing Salt, 8oz Pouch</h3>
+			<h3>$11.99</h3>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+			<h3>Extra-Coarse Grinder Salt, 8oz Pouch</h3>
+			<h3>$11.99</h3>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+			<h3>Finishing Salt and Grinder Salt Gift Pack</h3>
+			<h3>$22.99</h3>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+			<h3>Fine-Grain Finishing Salt, 4lb Bulk Bag</h3>
+			<h3>$45.99</h3>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+			<h3>Extra-Coarse Grinder Salt, 4lb Bulk Bag</h3>
+			<h3>$45.99</h3>
+			</a>
+		</div>
+	</div>
+</div>
+
+<script>
+var running = true;
+var thumbSelect = document.querySelectorAll('#slider-thumbnails > div');
+var thumbGroup = document.getElementById('slider-thumbnails');
+
+thumbGroup.onclick = function() {
+	if (running = true) {
+		pauseAdvance();
+	}
+}
+
+function pauseAdvance() {
+	running = false;
+	clearInterval(picInterval);
+}
+
+function resumeAdvance() {
+	running = true;
+	picInterval = setInterval(nextPic, 4000);
+}
+
+var playPause = document.getElementById("play-pause")
+
+function playToggle() {
+	if (running = true) {
+		playPause.className = 'play-pause showpause';
+	} else if (running = false) {
+		playPause.className = 'play-pause showplay';
+	}
+}
+
+var bigPic = document.querySelectorAll('.indiv-img');
+var currentPic = 0;
+var infoBox = document.querySelectorAll('#slider-product-info > div');
+var currentBox = 0;	
+var currentThumb = 0;
+var picInterval = setInterval(nextPic, 4000);
+
+function nextPic() {
+	goToProduct(currentPic+1);
+}
+
+function goToProduct(n) {
+	bigPic[currentPic].className = 'indiv-img bottom';
+	currentPic = (n+bigPic.length)%bigPic.length;
+	bigPic[currentPic].className = 'indiv-img middle';
+	infoBox[currentBox].className = 'info-right';
+	currentBox = (n+infoBox.length)%infoBox.length;
+	infoBox[currentBox].className = 'info-center';
+	thumbSelect[currentThumb].className = '';
+	currentThumb = (n+thumbSelect.length)%thumbSelect.length;
+	thumbSelect[currentThumb].className = 'highlighted';	
+}
+
+</script>
+
+</body>
+</html>
